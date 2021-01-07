@@ -26,11 +26,12 @@ class CinemaRepositoryImpl (
             if (response!=null) {
                 listOfMoview = response.results
                 Log.i("CinemaRepositoryImpl", "ServerRetrieves : ${listOfMoview}")
+                cinemaLocalDataSource.insertCinemasToDB(listOfMoview)
             }
         } catch (e: Exception) {
         Log.i("CinemaRepositoryImpl", "The error given is : ${e.message}")
         }
-
+            Log.d("LocalDatabase","Return data from database: ${cinemaLocalDataSource.retrieveCinemaFrmDB()}")
         return listOfMoview
     }
 
@@ -46,8 +47,8 @@ class CinemaRepositoryImpl (
         if (listOfMoview!=null) {
             return listOfMoview
         } else {
-           // listOfMoview = retrieveCinemaFromAPI()
-            cinemaLocalDataSource.insertCinemasToDB(listOfMoview)
+            listOfMoview = retrieveCinemaFromAPI()
+
         }
 
         return listOfMoview

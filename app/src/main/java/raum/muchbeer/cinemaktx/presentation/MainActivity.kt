@@ -3,8 +3,7 @@ package raum.muchbeer.cinemaktx.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
+import android.view.*
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -63,4 +62,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.refresh, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId) {
+            R.id.menu_refresh -> {
+                Log.i("MainActivity : ", "success")
+                return true
+            }            
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

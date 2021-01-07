@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 class DatabaseModule {
-
+/*
     @Singleton
     @Provides
     @Named("database_key")
@@ -22,7 +22,7 @@ class DatabaseModule {
             return Room.databaseBuilder(applictionContext.applicationContext,
                          CinemaGeneralDatabase::class.java,
                             "gadiel_cinema").build()
-    }
+    }*/
 
     @Singleton
     @Provides
